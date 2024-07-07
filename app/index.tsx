@@ -53,6 +53,29 @@ const FeatureCard = ({ iconSvg: IconSvg, name, desc }: any) => {
   )
 }
 
+// Создание компонента Section
+const Deductible = ({ title, progressValue, amount1, untilMet, amount2 }) => (
+  <Box pb="$2">
+    <Text pb="$1.5" size="md">
+      {title}
+    </Text>
+    <Progress value={progressValue} size="md" bg="#EEF2F5">
+      <ProgressFilledTrack />
+    </Progress>
+    <HStack py="$1.5" justifyContent="space-between">
+      <Text fontWeight="bold" size="sm">
+        {amount1}
+      </Text>
+      <Box flexDirection="row">
+        <Text size="sm">{untilMet} until met </Text>
+        <Text fontWeight="bold" size="sm">
+          {amount2}
+        </Text>
+      </Box>
+    </HStack>
+  </Box>
+)
+
 export default function Home() {
   return (
     <Box flex={1} backgroundColor="#F3F2F8">
@@ -121,37 +144,77 @@ export default function Home() {
             <Logo />
           </Box> */}
           <Text pb="$1">Welcome</Text>
-          <Text fontSize="21" fontWeight="bold" pb="$8">
+          <Text fontSize="21" fontWeight="bold" pb="$6">
             John Smith 👋
           </Text>
-          <VStack space="md" reversed={false}>
-            <Text pb="$1">Family</Text>
+          <VStack space="sm" reversed={false}>
+            <Text color="$warmGray400">Family</Text>
             <Box
               $base-flexDirection="column"
               $md-flexDirection="row"
               bg="white"
-              p="$8"
+              px="$8"
+              py="$7"
               borderRadius="16"
             >
-              <Text>Medical Deductible</Text>
-              <Progress value={60} size="md">
-                <ProgressFilledTrack />
-              </Progress>
-              <HStack>
-                <Text fontWeight="bold">$1650</Text>
-                <Text>$1,450 until met</Text>
-                <Text fontWeight="bold">$3000</Text>
-              </HStack>
+              <Box pb="$2">
+                <Text pb="$1.5" size="md">
+                  Medical Deductible
+                </Text>
+                <Progress value={60} size="md" bg="#EEF2F5">
+                  <ProgressFilledTrack />
+                </Progress>
+                <HStack py="$1.5" justifyContent="space-between">
+                  <Text fontWeight="bold" size="sm">
+                    $1,650
+                  </Text>
+                  <Box flexDirection="row">
+                    <Text size="sm">$1,450 until met </Text>
+                    <Text fontWeight="bold" size="sm">
+                      $3,000
+                    </Text>
+                  </Box>
+                </HStack>
+              </Box>
 
-              <Divider my="$0.5" />
-              <Text>Out-Of-Pocket - In Network</Text>
-              <Progress value={40} size="md">
-                <ProgressFilledTrack />
-              </Progress>
-              <Text>Out-Of-Pocket - Out of Network</Text>
-              <Progress value={10} size="md">
-                <ProgressFilledTrack />
-              </Progress>
+              {/* <Divider /> */}
+              {/* In Network */}
+              <Box pb="$2">
+                <Text pb="$1.5">In Network</Text>
+                <Progress value={40} size="md" bg="#EEF2F5">
+                  <ProgressFilledTrack />
+                </Progress>
+                <HStack py="$1.5" justifyContent="space-between">
+                  <Text fontWeight="bold" size="sm">
+                    $230
+                  </Text>
+                  <Box flexDirection="row">
+                    <Text size="sm">$7,270 until met </Text>
+                    <Text fontWeight="bold" size="sm">
+                      $7,500
+                    </Text>
+                  </Box>
+                </HStack>
+              </Box>
+
+              {/* Out of Network */}
+              <Box>
+                <Text pb="$1.5">Out of Network</Text>
+                <Progress value={10} size="md" bg="#EEF2F5">
+                  <ProgressFilledTrack />
+                </Progress>
+                <HStack py="$1.5" justifyContent="space-between">
+                  <Text fontWeight="bold" size="sm">
+                    $1650
+                  </Text>
+                  <Box flexDirection="row">
+                    <Text size="sm">$1,450 until met </Text>
+                    <Text fontWeight="bold" size="sm">
+                      $,3000
+                    </Text>
+                  </Box>
+                </HStack>
+              </Box>
             </Box>
           </VStack>
 
