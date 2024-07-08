@@ -53,14 +53,14 @@ const FeatureCard = ({ iconSvg: IconSvg, name, desc }: any) => {
   )
 }
 
-// Создание компонента Section
+// Deductible
 const Deductible = ({ title, progressValue, amount1, untilMet, amount2 }) => (
   <Box pb="$2">
     <Text pb="$1.5" size="md">
       {title}
     </Text>
     <Progress value={progressValue} size="md" bg="#EEF2F5">
-      <ProgressFilledTrack />
+      <ProgressFilledTrack bg="$primary500" />
     </Progress>
     <HStack py="$1.5" justifyContent="space-between">
       <Text fontWeight="bold" size="sm">
@@ -157,64 +157,29 @@ export default function Home() {
               py="$7"
               borderRadius="16"
             >
-              <Box pb="$2">
-                <Text pb="$1.5" size="md">
-                  Medical Deductible
-                </Text>
-                <Progress value={60} size="md" bg="#EEF2F5">
-                  <ProgressFilledTrack />
-                </Progress>
-                <HStack py="$1.5" justifyContent="space-between">
-                  <Text fontWeight="bold" size="sm">
-                    $1,650
-                  </Text>
-                  <Box flexDirection="row">
-                    <Text size="sm">$1,450 until met </Text>
-                    <Text fontWeight="bold" size="sm">
-                      $3,000
-                    </Text>
-                  </Box>
-                </HStack>
-              </Box>
+              <Deductible
+                title="Medical Deductible"
+                progressValue={60}
+                amount1="$1,650"
+                untilMet="$1,450"
+                amount2="$3,000"
+              />
 
-              {/* <Divider /> */}
-              {/* In Network */}
-              <Box pb="$2">
-                <Text pb="$1.5">In Network</Text>
-                <Progress value={40} size="md" bg="#EEF2F5">
-                  <ProgressFilledTrack />
-                </Progress>
-                <HStack py="$1.5" justifyContent="space-between">
-                  <Text fontWeight="bold" size="sm">
-                    $230
-                  </Text>
-                  <Box flexDirection="row">
-                    <Text size="sm">$7,270 until met </Text>
-                    <Text fontWeight="bold" size="sm">
-                      $7,500
-                    </Text>
-                  </Box>
-                </HStack>
-              </Box>
+              <Deductible
+                title="In Network"
+                progressValue={40}
+                amount1="$230"
+                untilMet="$7,270"
+                amount2="$7,500"
+              />
 
-              {/* Out of Network */}
-              <Box>
-                <Text pb="$1.5">Out of Network</Text>
-                <Progress value={10} size="md" bg="#EEF2F5">
-                  <ProgressFilledTrack />
-                </Progress>
-                <HStack py="$1.5" justifyContent="space-between">
-                  <Text fontWeight="bold" size="sm">
-                    $1650
-                  </Text>
-                  <Box flexDirection="row">
-                    <Text size="sm">$1,450 until met </Text>
-                    <Text fontWeight="bold" size="sm">
-                      $,3000
-                    </Text>
-                  </Box>
-                </HStack>
-              </Box>
+              <Deductible
+                title="Out of Network"
+                progressValue={10}
+                amount1="$1,650"
+                untilMet="$1,450"
+                amount2="$3,000"
+              />
             </Box>
           </VStack>
 
