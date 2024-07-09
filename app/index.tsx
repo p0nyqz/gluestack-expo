@@ -24,6 +24,10 @@ import {
   Divider,
   Card,
   Heading,
+  Avatar,
+  AvatarFallbackText,
+  Icon,
+  AvatarBadge,
 } from '@gluestack-ui/themed'
 
 import { Link } from 'expo-router'
@@ -121,14 +125,33 @@ export default function Home() {
           {/* <Box justifyContent="center" alignItems="center">
             <Logo />
           </Box> */}
-          <Text pb="$1">Welcome</Text>
-          <Text fontSize="21" fontWeight="bold" pb="$6">
-            John Smith 👋
-          </Text>
+
+          <HStack justifyContent="space-between">
+            <Box>
+              <Text pb="$1">Welcome</Text>
+              <Text fontSize="21" fontWeight="bold" pb="$6">
+                John Smith 👋
+              </Text>
+            </Box>
+
+            {/* Avatar */}
+            <Avatar bgColor="$primary500" size="md" borderRadius="$full">
+              <AvatarFallbackText color="$white">Jonh Smith</AvatarFallbackText>
+              <AvatarBadge $dark-borderColor="$black" />
+            </Avatar>
+          </HStack>
 
           {/* Deductible */}
           <VStack space="sm" reversed={false}>
-            <Text color="$warmGray400">Family</Text>
+            <Box flexDirection="row" justifyContent="space-between">
+              <Text color="$warmGray400" size="sm">
+                Family
+              </Text>
+              <Text color="$primary500" size="sm">
+                <Link href="/accumulators">View All</Link>
+              </Text>
+            </Box>
+
             <Box
               $base-flexDirection="column"
               $md-flexDirection="row"
@@ -140,29 +163,31 @@ export default function Home() {
               <Deductible
                 title="Medical Deductible"
                 progressValue={60}
-                amount1="$1,650"
-                untilMet="$1,450"
-                amount2="$3,000"
+                amount1="$1650"
+                amount2="$3000"
               />
 
               <Deductible
                 title="In Network"
                 progressValue={40}
-                amount1="$230"
-                untilMet="$7,270"
-                amount2="$7,500"
+                amount1="$2300"
+                amount2="$7500"
               />
 
               <Deductible
                 title="Out of Network"
                 progressValue={10}
-                amount1="$1,650"
-                untilMet="$1,450"
-                amount2="$3,000"
+                amount1="$1230"
+                amount2="$38000"
               />
             </Box>
+
+            <Text color="$warmGray400" size="sm">
+              Coverage
+            </Text>
           </VStack>
 
+          {/* Cards */}
           <Card size="lg" variant="elevated" m="$3">
             {/* <Heading mb="$1" size="md">
               Quick Start
@@ -224,21 +249,21 @@ export default function Home() {
             </HStack>
           </Card>
 
-          {/* <FeatureCard
-              iconSvg={DocumentData}
-              name="Docs"
-              desc="Find in-depth information about gluestack features and API."
-            />
-            <FeatureCard
-              iconSvg={LightBulbPerson}
-              name="Learn"
-              desc="Learn about gluestack in an interactive course with quizzes!"
-            />
-            <FeatureCard
-              iconSvg={Rocket}
-              name="Deploy"
-              desc="Instantly drop your gluestack site to a shareable URL with vercel."
-            /> */}
+          <FeatureCard
+            iconSvg={DocumentData}
+            name="Docs"
+            desc="Find in-depth information about gluestack features and API."
+          />
+          <FeatureCard
+            iconSvg={LightBulbPerson}
+            name="Learn"
+            desc="Learn about gluestack in an interactive course with quizzes!"
+          />
+          <FeatureCard
+            iconSvg={Rocket}
+            name="Deploy"
+            desc="Instantly drop your gluestack site to a shareable URL with vercel."
+          />
 
           {/* Form */}
         </Box>
