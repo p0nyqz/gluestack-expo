@@ -3,6 +3,7 @@ import DocumentData from '../assets/Icons/DocumentData'
 import LightBulbPerson from '../assets/Icons/LightbulbPerson'
 import Rocket from '../assets/Icons/Rocket'
 import Logo from '../assets/Icons/Logo'
+import Deductible from '../components/Deductible'
 import {
   Box,
   Button,
@@ -52,29 +53,6 @@ const FeatureCard = ({ iconSvg: IconSvg, name, desc }: any) => {
     </Box>
   )
 }
-
-// Deductible
-const Deductible = ({ title, progressValue, amount1, untilMet, amount2 }) => (
-  <Box pb="$2">
-    <Text pb="$1.5" size="md">
-      {title}
-    </Text>
-    <Progress value={progressValue} size="md" bg="#EEF2F5">
-      <ProgressFilledTrack bg="$primary500" />
-    </Progress>
-    <HStack py="$1.5" justifyContent="space-between">
-      <Text fontWeight="bold" size="sm">
-        {amount1}
-      </Text>
-      <Box flexDirection="row">
-        <Text size="sm">{untilMet} until met </Text>
-        <Text fontWeight="bold" size="sm">
-          {amount2}
-        </Text>
-      </Box>
-    </HStack>
-  </Box>
-)
 
 export default function Home() {
   return (
@@ -147,6 +125,8 @@ export default function Home() {
           <Text fontSize="21" fontWeight="bold" pb="$6">
             John Smith 👋
           </Text>
+
+          {/* Deductible */}
           <VStack space="sm" reversed={false}>
             <Text color="$warmGray400">Family</Text>
             <Box
@@ -195,13 +175,13 @@ export default function Home() {
             </Progress>
             <HStack>
               <Text fontWeight="bold" size="sm" py="$1">
-                $1650
+                $1,650
               </Text>
               <Text size="sm" py="$1">
                 $1,450 until met
               </Text>
               <Text fontWeight="bold" size="sm" py="$1" pb="$4">
-                $3000
+                $3,000
               </Text>
             </HStack>
             <Divider></Divider>
@@ -214,7 +194,7 @@ export default function Home() {
             </Progress>
             <HStack>
               <Text fontWeight="bold" size="sm" py="$1">
-                $1650
+                $1,650
               </Text>
               <Text size="sm" py="$1">
                 $1,450 until met
@@ -233,16 +213,17 @@ export default function Home() {
             </Progress>
             <HStack>
               <Text fontWeight="bold" size="sm" py="$1">
-                $1650
+                $1,650
               </Text>
               <Text size="sm" py="$1">
                 $1,450 until met
               </Text>
               <Text fontWeight="bold" size="sm" py="$1">
-                $3000
+                $3,000
               </Text>
             </HStack>
           </Card>
+
           {/* <FeatureCard
               iconSvg={DocumentData}
               name="Docs"
@@ -260,26 +241,6 @@ export default function Home() {
             /> */}
 
           {/* Form */}
-          <FormControl minWidth="$80">
-            {/* <FormControlLabel>
-                <FormControlLabelText>Name</FormControlLabelText>
-              </FormControlLabel> */}
-            <Input>
-              <InputField placeholder="Email" />
-            </Input>
-            {/* <FormControlHelper>
-                <FormControlHelperText>
-                  What would you like people to call you?
-                </FormControlHelperText>
-              </FormControlHelper> */}
-          </FormControl>
-          <FormControl>
-            <Button bg="$darkBlue600">
-              <ButtonText fontSize="$sm" fontWeight="$medium">
-                Create Account
-              </ButtonText>
-            </Button>
-          </FormControl>
         </Box>
       </ScrollView>
     </Box>
