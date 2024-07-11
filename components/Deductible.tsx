@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Box,
   Text,
@@ -7,7 +6,7 @@ import {
   ProgressFilledTrack,
 } from '@gluestack-ui/themed'
 
-const Deductible = ({ title, progressValue, amount1, amount2 }) => {
+const Deductible = ({ title, amount1, amount2 }) => {
   // Функция для удаления символа $ и запятых, и преобразования строки в число
   const parseCurrency = (value) => {
     return parseFloat(value.replace(/[$,]/g, ''))
@@ -26,6 +25,9 @@ const Deductible = ({ title, progressValue, amount1, amount2 }) => {
       maximumFractionDigits: 0,
     })}`
   }
+
+  // Вычисление значения прогресса
+  const progressValue = (amount1Num / amount2Num) * 100
 
   return (
     <Box pb="$2">
