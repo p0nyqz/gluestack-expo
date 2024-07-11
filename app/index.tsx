@@ -4,6 +4,7 @@ import LightBulbPerson from '../assets/Icons/LightbulbPerson'
 import Rocket from '../assets/Icons/Rocket'
 import Logo from '../assets/Icons/Logo'
 import Deductible from '../components/Deductible'
+import Navigation from '@/components/Navigation'
 import {
   Box,
   Button,
@@ -32,31 +33,31 @@ import {
 
 import { Link } from 'expo-router'
 
-const FeatureCard = ({ iconSvg: IconSvg, name, desc }: any) => {
-  return (
-    <Box
-      flexDirection="column"
-      borderWidth={1}
-      borderColor="$borderDark700"
-      $web-flex={1}
-      m="$2"
-      p="$4"
-      rounded="$md"
-    >
-      <Box alignItems="center" display="flex" flexDirection="row">
-        <Text>
-          <IconSvg />
-        </Text>
-        <Text fontSize={22} color="$white" fontWeight="500" ml="$2">
-          {name}
-        </Text>
-      </Box>
-      <Text color="$textDark400" mt="$2">
-        {desc}
-      </Text>
-    </Box>
-  )
-}
+// const FeatureCard = ({ iconSvg: IconSvg, name, desc }: any) => {
+//   return (
+//     <Box
+//       flexDirection="column"
+//       borderWidth={1}
+//       borderColor="$borderDark700"
+//       $web-flex={1}
+//       m="$2"
+//       p="$4"
+//       rounded="$md"
+//     >
+//       <Box alignItems="center" display="flex" flexDirection="row">
+//         <Text>
+//           <IconSvg />
+//         </Text>
+//         <Text fontSize={22} color="$white" fontWeight="500" ml="$2">
+//           {name}
+//         </Text>
+//       </Box>
+//       <Text color="$textDark400" mt="$2">
+//         {desc}
+//       </Text>
+//     </Box>
+//   )
+// }
 
 export default function Home() {
   return (
@@ -162,22 +163,15 @@ export default function Home() {
             >
               <Deductible
                 title="Medical Deductible"
-                progressValue={60}
                 amount1="$1650"
                 amount2="$3000"
               />
 
-              <Deductible
-                title="In Network"
-                progressValue={40}
-                amount1="$2300"
-                amount2="$7500"
-              />
-
+              {/*Self-Payment */}
+              <Deductible title="In Network" amount1="$2300" amount2="$7500" />
               <Deductible
                 title="Out of Network"
-                progressValue={10}
-                amount1="$1230"
+                amount1="$3230"
                 amount2="$38000"
               />
             </Box>
@@ -249,7 +243,7 @@ export default function Home() {
             </HStack>
           </Card>
 
-          <FeatureCard
+          {/* <FeatureCard
             iconSvg={DocumentData}
             name="Docs"
             desc="Find in-depth information about gluestack features and API."
@@ -263,11 +257,12 @@ export default function Home() {
             iconSvg={Rocket}
             name="Deploy"
             desc="Instantly drop your gluestack site to a shareable URL with vercel."
-          />
+          /> */}
 
           {/* Form */}
         </Box>
       </ScrollView>
+      <Navigation />
     </Box>
   )
 }
