@@ -182,11 +182,11 @@ export default function Home() {
           </VStack>
 
           {/* Cards */}
-          <Card size="lg" variant="elevated" m="$3">
-            {/* <Heading mb="$1" size="md">
+          {/* <Card size="lg" variant="elevated" m="$3"> */}
+          {/* <Heading mb="$1" size="md">
               Quick Start
             </Heading> */}
-            <Text size="sm" py="$1">
+          {/* <Text size="sm" py="$1">
               Medical Deductible
             </Text>
             <Progress value={60} size="sm" color="lightBlue900">
@@ -241,7 +241,7 @@ export default function Home() {
                 $3,000
               </Text>
             </HStack>
-          </Card>
+          </Card> */}
 
           {/* <FeatureCard
             iconSvg={DocumentData}
