@@ -1,8 +1,10 @@
 import { Link } from 'expo-router'
 import { View, SafeAreaView, ScrollView } from 'react-native'
 import { Text, Heading, Box, VStack } from '@gluestack-ui/themed'
+import Rocket from '../assets/Icons/Rocket'
 
 import Deductible from '../components/Deductible'
+import Navigation from '@/components/Navigation'
 
 export default function Accumulators() {
   return (
@@ -14,6 +16,9 @@ export default function Accumulators() {
         <Box $base-my="$16" $base-mx="$5">
           <SafeAreaView flexDirection="row">
             <Link href="/">Go to Home Page</Link>
+            <Link href="/">
+              <Rocket color="black" />
+            </Link>
             <Heading pb="$6">Accumulators</Heading>
           </SafeAreaView>
 
@@ -48,8 +53,7 @@ export default function Accumulators() {
             </Box>
           </VStack>
 
-          {/* Individual */}
-          {/* Family */}
+          {/* Individual John Smith*/}
           <VStack space="sm" reversed={false}>
             <Box flexDirection="row" justifyContent="space-between">
               <Text
@@ -86,6 +90,48 @@ export default function Accumulators() {
               <Deductible
                 title="Out of Network"
                 amount1="$1230"
+                amount2="$38000"
+              />
+            </Box>
+          </VStack>
+
+          {/* Individual Jane Smith*/}
+          <VStack space="sm" reversed={false}>
+            <Box flexDirection="row" justifyContent="space-between">
+              <Text
+                color="$warmGray600"
+                size="sm"
+                mt="$2"
+                fontWeight="$semibold"
+              >
+                Jane Smith
+              </Text>
+            </Box>
+            <Box
+              $base-flexDirection="column"
+              $md-flexDirection="row"
+              bg="white"
+              px="$8"
+              py="$7"
+              borderRadius="16"
+            >
+              <Deductible
+                title="Medical Deductible"
+                amount1="$250"
+                amount2="$750"
+              />
+
+              <Deductible
+                title="Dental Deductible"
+                amount1="$550"
+                amount2="$1000"
+              />
+
+              <Deductible title="In Network" amount1="$2045" amount2="$3000" />
+
+              <Deductible
+                title="Out of Network"
+                amount1="$3330"
                 amount2="$38000"
               />
             </Box>
